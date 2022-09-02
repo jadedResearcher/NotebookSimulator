@@ -44,6 +44,29 @@
         const img = document.createElement("img");
         img.className = "blorbo";
         img.src = sources[blorbo];
+        img.onclick = () => {
+          //i don't want it in the dom before you've found it, but once there, toggleable
+          const proseDiv = document.querySelector("#prose");
+
+          if (proseDiv) {
+            if(proseDiv.style.display != "block"){
+              document.querySelector("#story").style.display = "none";
+              proseDiv.style.display = "block";
+            }else{
+              document.querySelector("#story").style.display = "block";
+              proseDiv.style.display = "none";
+            }
+
+          } else {
+            document.querySelector("#story").style.display = "none";
+            const div = document.createElement("div");
+            div.id = "prose";
+            document.querySelector('body').append(div);
+            div.style.display = "block";
+            div.innerHTML = prose;
+          }
+
+        }
 
         ele.append(img);
         if (monster) {
@@ -67,14 +90,15 @@
 
     window.onload = () => {
       initBlorbos(["reflection"], true)
+      console.log("JR NOTE: click on the boy to understand more.")
       document.querySelector("#story").style.display = "block";
-        document.querySelector("#euphoria").style.display = "none";
+      document.querySelector("#euphoria").style.display = "none";
 
-        const page1 = new Page(1, page1Content);
-        const page2 = new Page(2, page2Content);
+      const page1 = new Page(1, page1Content);
+      const page2 = new Page(2, page2Content);
 
-        page1.render(document.querySelector("#story"));
-        page2.render(document.querySelector("#story"));
+      page1.render(document.querySelector("#story"));
+      page2.render(document.querySelector("#story"));
 
 
     }

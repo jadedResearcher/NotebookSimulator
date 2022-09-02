@@ -70,23 +70,26 @@ li{
   width: 792px;
 }
 
-p{
+.yongki{
+  color: lime;
+  font-family: yongki;
+  line-height: 25px;
   margin-left: 30px;
   font-size: 18px;
   width: 641px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.yongki{
-  color: lime;
-  font-family: yongki;
-  line-height: 25px;
-}
 
 .captain{
   color: blue;
   font-family: captain;
   line-height: 25px;
+  margin-left: 30px;
+  font-size: 18px;
+  width: 641px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .page{
@@ -152,4 +155,22 @@ button{
   width: 300px;
   display: block;
   margin-top: 25%;
+}
+
+#prose{
+  width: 1000px;
+  pointer-events: none;
+  margin-left: auto;
+  margin-right: auto;
+  background-color :#f5f5f5;
+  color: black;
+  padding: 25px;
+  font-weight: bolder;
+  margin-bottom: 72px;
+  filter: drop-shadow(1px 1px 5px #377E9B);
+  background-image: linear-gradient(var(--line-color), var(--line-color));
+  background-repeat: no-repeat;
+  background-size: 100% var(--line-height);
+  background-position: 0 center;
+  position: relative;
 }
