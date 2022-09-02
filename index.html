@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <title>Notebook</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="alt.ico" />
+  <script src="page.js"></script>
+  <script>
+    //i wrote this one and IC edited (normally ic writes)
+
+    initBlorbos = (blorbos, monster) => {
+      const sources = {
+        solemn: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thesolemn.png',
+        twin2: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thetwins2.png',
+        _: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/_.png',
+        twin1: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thetwins1.png',
+        reflection: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thereflection.png',
+        match: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thematch.png',
+        shot: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/theshot.png',
+        end: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/theend.png',
+        k: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/k.png', //doesn't deserve a title, bastard man
+        deadgod: 'deadgodwatching.png'
+      }
+
+      const monsters = {
+        solemn: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/solemn.png',
+        twin2: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/twins.png',
+        _: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/_.png',
+        twin1: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/twins.png',
+        reflection: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/thereflection.png',
+        match: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/match.png',
+        shot: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/porter.png',
+        end: 'http://farragofiction.com/TwoGayJokes/Stories/MonsterIcons/end.png',
+        k: 'http://farragofiction.com/TwoGayJokes/Stories/MurderGameIcons/k.png', //doesn't deserve a title, bastard man
+        deadgod: 'deadgod.png'
+      }
+      const ele = document.querySelector("#cast");
+      if (!ele) {
+        console.error("JR NOTE: cannot find cast section. Did you REALLY mean to call this?");
+        return;
+      }
+
+      for (let blorbo of blorbos) {
+        const img = document.createElement("img");
+        img.className = "blorbo";
+        img.src = sources[blorbo];
+
+        ele.append(img);
+        if (monster) {
+          img.addEventListener("mouseover", () => {
+            img.src = monsters[blorbo];
+          });
+          img.onmouseout = () => {
+            img.src = sources[blorbo];
+          }
+        }
+      }
+      //stress test
+      /*
+      for(let source of Object.values(sources)){
+        const img = document.createElement("img");
+        img.className = "blorbo";
+        img.src = source;
+        ele.append(img);
+      }*/
+    }
+
+    window.onload = () => {
+      initBlorbos(["reflection"], true)
+      document.querySelector("#story").style.display = "block";
+        document.querySelector("#euphoria").style.display = "none";
+
+        const page1 = new Page(1, page1Content);
+        const page2 = new Page(2, page2Content);
+
+        page1.render(document.querySelector("#story"));
+        page2.render(document.querySelector("#story"));
+
+
+    }
+
+  </script>
+</head>
+
+
+<body>
+
+  <audio id="muzak">
+    <source
+      src="http://farragofiction.com/CodexOfRuin/MallMusicMuzakMallOf1974/Mall%20Music%20Muzak%20-%20Mall%20Of%201974%20-%2013%20Parking%20Lot%20Lost.mp3"
+      type="audio/mpeg">
+    If you're reading this, audio isn't supported.
+  </audio>
+
+  <button id="euphoria">Click To Give Report</button>
+
+  <div id="story">
+
+  </div>
+  </div>
+
+  <div id="cast"></div>
+</body>
+
+</html>
