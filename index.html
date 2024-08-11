@@ -70,12 +70,6 @@
 
         ele.append(img);
         if (monster) {
-          img.addEventListener("mouseover", () => {
-            img.src = monsters[blorbo];
-          });
-          img.onmouseout = () => {
-            img.src = sources[blorbo];
-          }
 
           img.addEventListener("click", () => {
             if (img.src !== monsters[blorbo]) {
