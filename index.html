@@ -49,10 +49,10 @@
           const proseDiv = document.querySelector("#prose");
 
           if (proseDiv) {
-            if(proseDiv.style.display != "block"){
+            if (proseDiv.style.display != "block") {
               document.querySelector("#story").style.display = "none";
               proseDiv.style.display = "block";
-            }else{
+            } else {
               document.querySelector("#story").style.display = "block";
               proseDiv.style.display = "none";
             }
@@ -76,6 +76,15 @@
           img.onmouseout = () => {
             img.src = sources[blorbo];
           }
+
+          img.addEventListener("click", () => {
+            if (img.src !== monsters[blorbo]) {
+              img.src = monsters[blorbo];
+            } else {
+              img.src = sources[blorbo];
+            }
+          });
+
         }
       }
       //stress test
